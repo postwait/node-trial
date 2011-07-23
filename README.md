@@ -60,9 +60,9 @@ tests will full dependencies. .tjs files are javascript source files
 that have each attribute of the Test (above) as global assignable
 variables:
 
-   stupid.tjs
-   =====================
-   name = "dumb test"
-   plan = 1
-   provides = ['no value']
-   job = function() { this.ok(true, 'eureka'); }
+       stupid.tjs
+       =====================
+       name = "dumb test"
+       plan = 1
+       provides = ['no value']
+       job = function() { this.ok(true, 'eureka'); }
