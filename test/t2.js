@@ -8,3 +8,5 @@ var t1 = new Test(function() {
 var trial = new Trial({ verbose: process.env.VERBOSE });
 trial.add(t1);
 trial.run();
+
+setTimeout(function() { process.kill(0, 'SIGINT'); }, 2000);
