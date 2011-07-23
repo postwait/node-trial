@@ -1,0 +1,5 @@
+name = 'Foo From a File';
+plan = 1;
+job = function() {
+  this.ok(true, "Simple ok");
+}
