@@ -1,0 +1,14 @@
+{
+  "name": "trial",
+  "description": "A testing framework",
+  "version": "0.0.1",
+  "author": "Theo Schlossnagle",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/postwait/node-test.git"
+  },
+  "directories": {
+    "lib": "./lib/trial"
+  },
+  "main": "lib/trial/index.js"
+}
