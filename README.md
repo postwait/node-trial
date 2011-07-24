@@ -46,9 +46,9 @@ dependency graph dictates. Upon completion a report will be issued.
 Verbose details will be shown if TEST_VERBOSE environment variable is
 set (or the verbose attribute is passed to the Trial creation).
 
-trial.exit() informs the trial that upon completion it should
-exit (node) and exit with a status code that indicates the overall
-trial sucess (0 for good, 1 for bad).
+trial.noexit() informs the trial that upon completion it should not
+exit (node) with a status code that indicates the overall trial
+sucess (0 for good, 1 for bad).
 
 If critical errors are encountered during test build or run, node will
 exit with a value of 2.

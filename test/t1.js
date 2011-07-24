@@ -8,4 +8,3 @@ var t1 = new Test(function() {
 var trial = new Trial();
 trial.add(t1);
 trial.run();
-trial.exit();
