@@ -5,7 +5,7 @@
   "author": "Theo Schlossnagle",
   "repository": {
     "type": "git",
-    "url": "http://github.com/postwait/node-test.git"
+    "url": "http://github.com/postwait/node-trial.git"
   },
   "directories": {
     "lib": "./lib/trial"
