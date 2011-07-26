@@ -9,4 +9,4 @@ var trial = new Trial({ verbose: process.env.VERBOSE });
 trial.add(t1);
 trial.run();
 
-setTimeout(function() { process.kill(0, 'SIGINT'); }, 2000);
+setTimeout(function() { process.kill(process.pid, 'SIGINT'); }, 2000);
