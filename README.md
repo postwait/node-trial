@@ -7,13 +7,13 @@ a tad differently.
 
 Each test consists of:
 
-  * job // a function that runs the tests.
+  * test // a function that runs the tests.
   * name // arbitrary user test name
   * plan // number of tests you intend to run
   * requires // array of named requirements
   * provides // array of named satisfications
 
-Like typical tap tests, a job would look something like this:
+Like typical tap tests, a test would look something like this:
 
 function() {
   this.ok(true, "this better pass");
@@ -21,7 +21,7 @@ function() {
   this.ok(false, "this test will certainly fail");
 }
 
-A test that includes this job must have a plan equal to 3. Due to
+A test that includes this test must have a plan equal to 3. Due to
 the asynchronous nature of many tests, the framework will wait until
 three tests checks report back before considering the test complete.
 If you trigger too few, it will hang waiting (as expected).  If you
@@ -65,4 +65,4 @@ variables:
        name = "dumb test"
        plan = 1
        provides = ['no value']
-       job = function() { this.ok(true, 'eureka'); }
+       test = function() { this.ok(true, 'eureka'); }
