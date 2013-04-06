@@ -1,9 +1,11 @@
-= trial =
+## Trial ##
 
-trail is a node module that provides concurrent testing with strong
+Trail is a node module that provides concurrent testing with strong
 dependency support.  Each test consists of bits that look quite a lot
 like the perl Test::More bits.  Becuase they are asynchronous, it works
 a tad differently.
+
+### Overview ###
 
 Each test consists of:
 
@@ -15,11 +17,11 @@ Each test consists of:
 
 Like typical tap tests, a test would look something like this:
 
-function() {
-  this.ok(true, "this better pass");
-  this.is(1+2, 3, "adding sorta works in javascript");
-  this.ok(false, "this test will certainly fail");
-}
+    function() {
+      this.ok(true, "this better pass");
+      this.is(1+2, 3, "adding sorta works in javascript");
+      this.ok(false, "this test will certainly fail");
+    }
 
 A test that includes this test must have a plan equal to 3. Due to
 the asynchronous nature of many tests, the framework will wait until
@@ -39,30 +41,42 @@ until the "createuser" test completes before beginning. This
 combined with the stash/fetch provides a simple way to synchronize
 complex and dependent tests while still maximizing concurrency.
 
-var trial = new Trial() creates a new trial object;
+### API ###
 
-trial.run() will start the trial executing all tests as the
+#### var trial = new Trial() ####
+
+creates a new trial object;
+
+#### trial.run() ####
+
+will start the trial executing all tests as the
 dependency graph dictates. Upon completion a report will be issued.
 Verbose details will be shown if TEST_VERBOSE environment variable is
 set (or the verbose attribute is passed to the Trial creation).
 
-trial.noexit() informs the trial that upon completion it should not
+#### trial.noexit() ####
+
+informs the trial that upon completion it should not
 exit (node) with a status code that indicates the overall trial
 sucess (0 for good, 1 for bad).
 
 If critical errors are encountered during test build or run, node will
 exit with a value of 2.
 
-trial.add(new Test(params)) will add a test to a trial.
+#### trial.add(new Test(params)) ####
 
-trial.load(dir) will recursively load all .tjs files and create
+Adds a new test to a trial.
+
+#### trial.load(dir) ####
+
+Will recursively load all .tjs files and create
 tests will full dependencies. .tjs files are javascript source files
 that have each attribute of the Test (above) as global assignable
 variables:
 
-       stupid.tjs
-       =====================
-       name = "dumb test"
-       plan = 1
-       provides = ['no value']
-       test = function() { this.ok(true, 'eureka'); }
+### stupid.tjs ###
+
+    name = "dumb test"
+    plan = 1
+    provides = ['no value']
+    test = function() { this.ok(true, 'eureka'); }
