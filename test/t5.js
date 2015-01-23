@@ -1,4 +1,4 @@
-var Trial = require('trial').Trial;
+var Trial = require('../index').Trial;
 
 var trial = new Trial();
 trial.load(__dirname + "/t5");

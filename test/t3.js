@@ -1,5 +1,5 @@
-var Test = require('trial').Test,
-    Trial = require('trial').Trial;
+var Test = require('../index').Test,
+    Trial = require('../index').Trial;
 
 var t1 = new Test(function() {
   this.ok(true, "postponed test");

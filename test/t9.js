@@ -1,5 +1,5 @@
-var Test = require('trial').Test,
-    Trial = require('trial').Trial;
+var Test = require('../index').Test,
+    Trial = require('../index').Trial;
 
 var input = {
   a: { b: [1,{ t: [1,2,3,4,5,{s:true}]

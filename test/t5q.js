@@ -1,1 +1,1 @@
-require('trial').runtests(__dirname + "/t5");
+require('../index').runtests(__dirname + "/t5");
