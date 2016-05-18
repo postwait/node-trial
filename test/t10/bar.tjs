@@ -1,0 +1,9 @@
+name = 'Bar From a File';
+plan = 1;
+requires = ['foo']
+
+test = function() {
+  process.nextTick(function(test) {
+    test.ok(true, "Simple ok");
+  }, this);
+}
