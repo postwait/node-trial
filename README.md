@@ -41,11 +41,25 @@ until the "createuser" test completes before beginning. This
 combined with the stash/fetch provides a simple way to synchronize
 complex and dependent tests while still maximizing concurrency.
 
+Each test is run in a new `vm` sandbox.
+
 ### API ###
 
-#### var trial = new Trial() ####
+#### var trial = new Trial([params]) ####
 
-creates a new trial object;
+creates a new trial object that respects the following param keys:
+
+ * `verbose` [`false`] : be verbose
+ * `brief`   [`false`] : be brief
+ * `summary` [`true`] : summarize the trial
+ * `incremental_reporting` [`false`] : don't wait until each test finishes
+ * `tap` [`false`] : use TAP output (above are ignored)
+ * `suppress` [`{}`] : keys of test names to suppress (not run)
+ * `require` : an optional replacement for `require()` maintain sandboxing
+
+Node, if `verbose`, `brief`, `summary`, or `incremental_reporting` are not
+specified, then they are taken from the environment variables `TEST_VERBOSE`,
+`TEST_BRIEF`, `TEST_SUMMARY`, or `INCREMENTAL_REPORTING`, respectively.
 
 #### trial.run() ####
 
@@ -74,9 +88,24 @@ tests will full dependencies. .tjs files are javascript source files
 that have each attribute of the Test (above) as global assignable
 variables:
 
-### stupid.tjs ###
+#### stupid.tjs ####
 
     name = "dumb test"
     plan = 1
     provides = ['no value']
     test = function() { this.ok(true, 'eureka'); }
+
+### Larger integrations ###
+
+The simple case can be solved using the `runtests` helper.
+
+    var runtests = require('trial').runtests;
+    var trial = runtests("./tests");
+
+#### Junit output for CI integration ####
+
+    # var trial = new Trial()
+    var runtests = require('trial').runtests;
+    var trial = runtests("./tests");
+    new Junit(trial, "test_detail.xml");
+
