@@ -1,7 +1,7 @@
 {
   "name": "trial",
   "description": "A testing framework",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Theo Schlossnagle",
   "repository": {
     "type": "git",
