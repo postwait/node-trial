@@ -1,0 +1,8 @@
+name = 'Bar From a File';
+plan = 1;
+
+test = function() {
+  setTimeout(function(test) {
+    test.ok(true, "Simple ok");
+  }, 10, this);
+}
